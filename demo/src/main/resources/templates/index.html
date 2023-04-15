@@ -2,12 +2,14 @@
 
 <html xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://thymeleaf.org ">
-<head>
-    <title>Technical Blog Application</title>
+<head th:replace="layout:: site-head">
+    <title>Front Page</title>
 </head>
 
+<header th:replace="layout :: logged-out"></header>
+
 <body>
-<h1>All Technical Posts</h1>
+<h1 >All Technical Posts</h1>
 <post th:each= "p : ${posts}">
     <h2 th:text="${p.title}"></h2>
     <i>Posted On: </i> <span th:text="${p.date}"></span>

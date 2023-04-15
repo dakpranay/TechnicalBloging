@@ -3,6 +3,7 @@ package com.example.demo.Model2;
 import java.util.Date;
 
 public class Post {
+
     private String title;
     private String body;
     private Date date;

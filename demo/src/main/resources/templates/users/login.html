@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<header th:replace ="layout:: logged-out"></header>
+<body>
+<h2>Please Login</h2>
+<form method="post" th:object="${User}">
+  <label for="username">Username:</label>
+  <input type="text" id="username" placeholder="Pranay Dak">
+  <label for="password">Password</label>
+  <input type="password" id="password">
+  <button>Login</button>
+</form>
+</body>
+</html>
