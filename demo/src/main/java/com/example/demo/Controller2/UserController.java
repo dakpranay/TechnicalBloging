@@ -3,6 +3,7 @@ package com.example.demo.Controller2;
 import com.example.demo.Model2.Post;
 import com.example.demo.Model2.User;
 import com.example.demo.Service.PostService;
+import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +30,19 @@ public class UserController {
 
     @RequestMapping(value = "users/login",method = RequestMethod.POST)
     public String loginUser(User user){
-        return "redirect:/posts";
+        if(UserService.login(user)){
+            return "redirect:/posts";
+        }
+        else {
+            return "users/login";
+        }
     }
+
+    @RequestMapping(value = "users/registration", method=RequestMethod.POST)
+    public String registerUser(User user) {
+        return "users/login";
+    }
+
 
     @RequestMapping(value = "users/logout",method = RequestMethod.POST)
     public String logout(Model model){
